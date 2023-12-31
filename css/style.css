@@ -75,6 +75,29 @@ p {
 	justify-content: space-between;
 	/* Word Input */
 	.game-area {
+		.control {
+			width: 300px;
+			margin-left: 105px;
+			display: flex;
+			text-align: center;
+			align-items: center;
+			justify-content: space-between;
+			.check,
+			.hint {
+				margin: 10px;
+				padding: 10px;
+				color: white;
+				font-size: 26px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: 600;
+				border-radius: 10px;
+				background-color: #6b6d6d;
+			}
+			/* .check {
+			}
+			.hint {
+			} */
+		}
 		.inputs {
 			> div {
 				/* margin-right: 5px;
@@ -161,8 +184,8 @@ footer {
 	width: 100%;
 	color: white;
 	background-color: #121213;
-	font-weight: bold;
 	font-size: 0.8rem;
+	font-weight: bold;
 }
 
 /* @font-face {
