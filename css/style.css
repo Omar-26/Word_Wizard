@@ -1,0 +1,299 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-color: #578c4f;
+	/*
+	#121213
+	#818384
+	#578C4F 
+	#BFA041
+	#3A3A3C
+	 */
+}
+
+@font-face {
+	font-family: "nyt-karnak";
+	src: url(../assets/fonts/karnak-small-normal-400.ttf);
+}
+
+body {
+	margin: 0;
+	background-color: #121213;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	height: 65px;
+	text-align: center;
+	padding: 20px;
+	margin: 0 0 9px;
+	background-color: #121213;
+	color: white;
+	font-size: 30px;
+	font-family: nyt-karnak;
+	/* font-stretch: ultra-condensed; */
+	font-weight: 50;
+	border-bottom: #323333 solid;
+	border-width: 0.01px;
+}
+
+h2 {
+	color: white;
+	text-align: left;
+	font-size: 12;
+	font-weight: 50;
+	font-family: nyt-karnak;
+}
+
+h3 {
+	margin: 0;
+	color: white;
+	/* display: flex; */
+	/* align-items: left; */
+	/* justify-content: space-around; */
+	font-size: 14px;
+	text-align: left;
+}
+
+p {
+	margin-left: 16px;
+	color: white;
+	display: list-item;
+	font-size: 14px;
+	text-align: left;
+}
+
+.guess-game {
+	text-align: center;
+	width: 500px;
+	margin: 1px auto;
+	margin-bottom: 50px;
+	display: grid;
+	align-items: flex-start;
+	justify-content: space-between;
+	/* Word Input */
+	.game-area {
+		.inputs {
+			> div {
+				/* margin-right: 5px;
+				margin-bottom: 5px; */
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.disabled-inputs {
+				/* opacity: 0.5; */
+				pointer-events: none;
+			}
+			input {
+				/* margin: 0 4px; */
+				margin-left: 6px;
+				margin-bottom: 6px;
+				width: 52px;
+				height: 52px;
+				text-align: center;
+				color: white;
+				font-size: 32px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: 600;
+				background-color: #121213;
+				caret-color: #121213;
+				border: #323333 solid;
+				border-width: 2px;
+				&:focus {
+					outline-color: #121213;
+				}
+			}
+		}
+	}
+	/* How To Play */
+	.key-colors {
+		border: #1d1d1d solid;
+		border-width: 2px;
+		border-radius: 15px;
+		padding: 25px;
+		margin: 15px;
+		.key-color {
+			text-align: left;
+			.key {
+				display: inline-flex;
+				width: 42px;
+				height: 42px;
+				color: white;
+				font-size: 30px;
+				font-weight: 600;
+				font-family: Arial, Helvetica, sans-serif;
+				border: #323333 solid;
+				border-width: 2px;
+				justify-content: space-evenly;
+				padding: 3.5px;
+				&.in-spot-active {
+					background-color: #578c4f;
+					border: #578c4f solid;
+				}
+				&.not-in-spot-active {
+					background-color: #bfa041;
+					border: #bfa041 solid;
+				}
+				&.wrong-active {
+					background-color: #3a3a3c;
+					border: #3a3a3c solid;
+				}
+			}
+			.key-text {
+				margin: 6px 0px 20px 3px;
+				color: #eee;
+				font-size: 18px;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+footer {
+	text-align: center;
+	padding: 5px;
+	left: 0;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	color: white;
+	background-color: #121213;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+/* @font-face {
+    font-family: "nyt-cheltenham";
+    src: url("./fonts/cheltenham/cheltenham-normal-300.woff2") format("woff2"),url("./fonts/cheltenham/cheltenham-normal-300.woff") format("woff");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-cheltenham";
+    src: url("./fonts/cheltenham/cheltenham-normal-500.woff2") format("woff2"),url("./fonts/cheltenham/cheltenham-normal-500.woff") format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-300.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-300.woff") format("woff");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-400.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-500.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-500.woff") format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-600.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-600.woff") format("woff");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-700.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-normal-800.woff2") format("woff2"),url("./fonts/franklin/franklin-normal-800.woff") format("woff");
+    font-weight: 800;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin";
+    src: url("./fonts/franklin/franklin-italic-500.woff2") format("woff2"),url("./fonts/franklin/franklin-italic-500.woff") format("woff");
+    font-weight: 500;
+    font-style: italic
+}
+
+@font-face {
+    font-family: "nyt-franklin-cw";
+    src: url("./fonts/franklin-cw/franklin-cw-normal-400.woff2") format("woff2"),url("./fonts/franklin-cw/franklin-cw-normal-400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-franklin-cw";
+    src: url("./fonts/franklin-cw/franklin-cw-normal-500.woff2") format("woff2"),url("./fonts/franklin-cw/franklin-cw-normal-500.woff") format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-karnak";
+    src: url("./fonts/karnak/karnak-normal-400.woff2") format("woff2"),url("./fonts/karnak/karnak-normal-400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-karnak";
+    src: url("./fonts/karnak/karnak-normal-500.woff2") format("woff2"),url("./fonts/karnak/karnak-normal-500.woff") format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-karnak";
+    src: url("./fonts/karnak/karnak-normal-600.woff2") format("woff2"),url("./fonts/karnak/karnak-normal-600.woff") format("woff");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-karnak";
+    src: url("./fonts/karnak/karnak-normal-700.woff2") format("woff2"),url("./fonts/karnak/karnak-normal-700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-karnakcondensed";
+    src: url("./fonts/karnakcondensed/karnakcondensed-normal-700.woff2") format("woff2"),url("./fonts/karnakcondensed/karnakcondensed-normal-700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-stymie";
+    src: url("./fonts/stymie/stymie-normal-500.woff2") format("woff2"),url("./fonts/stymie/stymie-normal-500.woff") format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-stymie";
+    src: url("./fonts/stymie/stymie-normal-700.woff2") format("woff2"),url("./fonts/stymie/stymie-normal-700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "nyt-stymie";
+    src: url("./fonts/stymie/stymie-normal-800.woff2") format("woff2"),url("./fonts/stymie/stymie-normal-800.woff") format("woff");
+    font-weight: 800;
+    font-style: normal
+} */
