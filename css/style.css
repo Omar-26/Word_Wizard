@@ -75,29 +75,6 @@ p {
 	justify-content: space-between;
 	/* Word Input */
 	.game-area {
-		.control {
-			width: 300px;
-			margin-left: 105px;
-			display: flex;
-			text-align: center;
-			align-items: center;
-			justify-content: space-between;
-			.check,
-			.hint {
-				margin: 10px;
-				padding: 10px;
-				color: white;
-				font-size: 26px;
-				font-family: Arial, Helvetica, sans-serif;
-				font-weight: 600;
-				border-radius: 10px;
-				background-color: #6b6d6d;
-			}
-			/* .check {
-			}
-			.hint {
-			} */
-		}
 		.inputs {
 			> div {
 				/* margin-right: 5px;
@@ -128,20 +105,69 @@ p {
 				&:focus {
 					outline-color: #121213;
 				}
+				&.yes-in-spot {
+					border: #578c4f solid;
+					background-color: #578c4f;
+				}
+				&.no-in-spot {
+					border: #bfa041 solid;
+					background-color: #bfa041;
+				}
+				&.not-in-word {
+					border: #3a3a3c solid;
+					background-color: #3a3a3c;
+				}
+			}
+		}
+		.control {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 400px;
+			margin: 10px auto;
+			gap: 14px;
+			/* text-align: center; */
+			button {
+				border: none;
+				border-radius: 8px;
+				padding: 10px 15px;
+				color: white;
+				font-size: 28px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: 600;
+				background-color: #6b6d6d;
+				cursor: pointer;
+			}
+			button:disabled {
+				background-color: #2a2a2a;
+				opacity: 0.4;
+				cursor: no-drop;
+			}
+			.check {
+				flex: 0.6;
+			}
+			.hint {
+				background-color: #0E3E74;
+				width: fit-content;
 			}
 		}
 	}
 	/* How To Play */
-	.key-colors {
-		border: #1d1d1d solid;
-		border-width: 2px;
-		border-radius: 15px;
+	.how-to-play {
 		padding: 25px;
 		margin: 15px;
+		border: #29292990 dashed;
+		border-width: 2px;
+		border-radius: 15px;
+		/* background-color: wheat; */
 		.key-color {
-			text-align: left;
-			.key {
-				display: inline-flex;
+			display: flex;
+			text-align: center;
+			align-items: center;
+			div {
+				padding: 2px 2px 0px 0px;
+				margin: 3px;
+				justify-content: space-between;
 				width: 42px;
 				height: 42px;
 				color: white;
@@ -150,8 +176,6 @@ p {
 				font-family: Arial, Helvetica, sans-serif;
 				border: #323333 solid;
 				border-width: 2px;
-				justify-content: space-evenly;
-				padding: 3.5px;
 				&.in-spot-active {
 					background-color: #578c4f;
 					border: #578c4f solid;
@@ -165,26 +189,27 @@ p {
 					border: #3a3a3c solid;
 				}
 			}
-			.key-text {
-				margin: 6px 0px 20px 3px;
-				color: #eee;
-				font-size: 18px;
-				font-weight: normal;
-			}
 		}
+	}
+	.key-text {
+		text-align: left;
+		margin: 6px 0px 20px 3px;
+		color: #eee;
+		font-size: 18px;
+		font-weight: normal;
 	}
 }
 
 footer {
 	text-align: center;
-	padding: 5px;
+	padding: 8px;
 	left: 0;
 	bottom: 0;
 	position: fixed;
 	width: 100%;
 	color: white;
 	background-color: #121213;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	font-weight: bold;
 }
 
