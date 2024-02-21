@@ -1,13 +1,15 @@
 // Setting Game Name
 let gameName = "Wordle";
-document.title = gameName;
+document.title = gameName + "- The New York Times";
 document.querySelector("h1").innerHTML = gameName;
-document.querySelector("footer").innerHTML = `Created by &#9400 2023 Omar.`;
+// document.querySelector("footer").innerHTML = `Created by &#9400 2023 Omar.`;
 
 // Setting Game Options
 let numOfTries = 6;
 let numOfLetters = 5;
 let currentTry = 1;
+let notInWordList = true;
+let successGuess = true;
 
 // Manage Words
 let wordToGuess = "";
@@ -5770,6 +5772,9 @@ const words = [
     'biffy',
     'pupal',
 ]
+
+// After Try Message
+let messaeArea = document.querySelector(".message")
 wordToGuess = words[Math.floor(Math.random() * words.length)].toLocaleLowerCase();
 
 
@@ -5830,13 +5835,10 @@ function generateInput() {
 const guessButton = document.querySelector(".check")
 guessButton.addEventListener("click", handleGuess);
 
-console.log(wordToGuess);
-
 function handleGuess() {
-    let successGuess = true;
     for (let i = 1; i <= numOfLetters; i++) {
         const inputField = document.querySelector(`#guess-${currentTry}-letter-${i}`)
-        const inputLetter = inputField.value.toLocaleLowerCase();
+        const inputLetter = inputField.value.toLowerCase();
         const wordLetter = wordToGuess[i - 1];
 
         // Game Logic
@@ -5845,19 +5847,79 @@ function handleGuess() {
             inputField.classList.add("yes-in-spot")
         }
         // Letter is Correct and not in spot
-        else if (wordToGuess.includes(inputLetter) && wordLetter !== "") {
+        else if (wordToGuess.includes(inputLetter) && inputLetter !== "") {
             inputField.classList.add("no-in-spot");
             successGuess = false;
         }
         else {
-
+            // Letter is not Correct 
             inputField.classList.add("not-in-word");
             successGuess = false;
         }
+    }
+    if (successGuess) {
 
-        // if(successGuess)
+        switch (currentTry) {
+            case 1: messaeArea.innerHTML = "Genius"; break;
+            case 2: messaeArea.innerHTML = "Magnificent"; break;
+            case 3: messaeArea.innerHTML = "Impressive"; break;
+            case 4: messaeArea.innerHTML = "Splendid"; break;
+            case 5: messaeArea.innerHTML = "Great"; break;
+        }
+        // Printing the desired message
+        messaeArea.classList.add("message-after");
 
+        // Disabling the Inputs after getting the right answer
+        let allTries = document.querySelectorAll(".inputs > div");
+        allTries.forEach((tryDiv) => tryDiv.classList.add("disabled-inputs"));
 
+        //Disable Guess Button
+        guessButton.disabled = true;
+
+    } else {
+
+        // Add Disabled Inputs to the current try if the guess is wrong 
+        document.querySelector(`.try-${currentTry}`).classList.add("disabled-inputs");
+        const currentTryInputs = document.querySelectorAll(`.try-${currentTry} input`);
+        currentTryInputs.forEach((input) => (input.disabled = true));
+
+        currentTry++;
+
+        // remove Disabled Inputs from the current try if the guess is wrong 
+        const nextTryInputs = document.querySelectorAll(`.try-${currentTry} input`);
+        nextTryInputs.forEach((input) => (input.disabled = false));
+
+        let el = document.querySelector(`.try-${currentTry}`);
+        if (el) {
+            document.querySelector(`.try-${currentTry}`).classList.remove("disabled-inputs");
+            el.children[0].focus();
+        }
+        else {
+            guessButton.disabled = true;
+            messaeArea.innerHTML = `<span>${wordToGuess}</span>`;
+            messaeArea.classList.add("message-after");
+        }
     }
 }
+document.addEventListener("keydown", function handleBackspace(event) {
+    if (event.key === "Backspace") {
+        const inputs = document.querySelectorAll("input:not([disabled])");
+        const currentIndex = Array.from(inputs).indexOf(document.activeElement);
+        if (currentIndex > 0) {
+            const currentIndexInput = inputs[currentIndex];
+            const previousIndexInput = inputs[currentIndex - 1];
+            currentIndexInput.value = "";
+            previousIndexInput.value = "";
+            previousIndexInput.focus();
+        }
+    }
+});
+
+document.addEventListener('keydown', function enterPress(event) {
+    if (event.key == "Enter") {
+        event.preventDefault();
+        guessButton.click();
+    }
+});
+document.body.style.cursor = '';
 window.onload = function () { generateInput(); };

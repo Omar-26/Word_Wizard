@@ -37,6 +37,7 @@ h1 {
 	font-weight: 50;
 	border-bottom: #323333 solid;
 	border-width: 0.01px;
+	cursor: default;
 }
 
 h2 {
@@ -75,6 +76,21 @@ p {
 	justify-content: space-between;
 	/* Word Input */
 	.game-area {
+		.message-after {
+			position: absolute;
+			padding: 12px;
+			display: inline-block;
+			top: 60px;
+			right: 720px;
+			font-size: 14px;
+			font-weight: 600;
+			background-color: white;
+			border-radius: 5px;
+			text-transform: capitalize;
+			/* background-color: wheat; */
+			/* animation: popup 5s ease-in-out; */
+			transition: 0.1s 0.2s step-start;
+		}
 		.inputs {
 			> div {
 				/* margin-right: 5px;
@@ -103,7 +119,8 @@ p {
 				border: #323333 solid;
 				border-width: 2px;
 				&:focus {
-					outline-color: #121213;
+					outline: none;
+					border: #494949 solid;
 				}
 				&.yes-in-spot {
 					border: #578c4f solid;
@@ -120,15 +137,16 @@ p {
 			}
 		}
 		.control {
-			display: flex;
+			/* display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 400px;
 			margin: 10px auto;
-			gap: 14px;
+			gap: 14px; */
 			/* text-align: center; */
 			button {
-				border: none;
+				opacity: 0;
+				/* border: none;
 				border-radius: 8px;
 				padding: 10px 15px;
 				color: white;
@@ -136,26 +154,23 @@ p {
 				font-family: Arial, Helvetica, sans-serif;
 				font-weight: 600;
 				background-color: #6b6d6d;
-				cursor: pointer;
+				cursor: pointer; */
 			}
 			button:disabled {
-				background-color: #2a2a2a;
-				opacity: 0.4;
-				cursor: no-drop;
+				opacity: 0;
+				/* color: #06739e;
+				background-color: white;
+				cursor: no-drop; */
 			}
-			.check {
+			/* .check {
 				flex: 0.6;
-			}
-			.hint {
-				background-color: #0E3E74;
-				width: fit-content;
-			}
+			} */
 		}
 	}
 	/* How To Play */
 	.how-to-play {
 		padding: 25px;
-		margin: 15px;
+		/* margin: 1px; */
 		border: #29292990 dashed;
 		border-width: 2px;
 		border-radius: 15px;
@@ -200,7 +215,68 @@ p {
 	}
 }
 
+/* keyboard {
+	display: grid;
+	grid-template-columns: repeat(20, minmax(auto, 1.25em));
+	grid-auto-rows: 3em;
+	gap: 0.25em;
+	justify-content: center;
+}
+
+.key {
+	font-size: inherit;
+	grid-column: span 2;
+	border: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: hsl(
+		var(--hue, 200),
+		var(--saturation, 1%),
+		calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
+	);
+	color: white;
+	fill: white;
+	text-transform: uppercase;
+	border-radius: 0.25em;
+	cursor: pointer;
+	user-select: none;
+}
+
+.key.large {
+	grid-column: span 3;
+}
+
+.key > svg {
+	width: 1.75em;
+	height: 1.75em;
+}
+
+.key:hover,
+.key:focus {
+	--lightness-offset: 10%;
+}
+
+.key.wrong {
+	--lightness: 23%;
+}
+
+.key.wrong-location {
+	--hue: 49;
+	--saturation: 51%;
+	--lightness: 47%;
+}
+
+.key.correct {
+	--hue: 115;
+	--saturation: 29%;
+	--lightness: 43%;
+} */
+
 footer {
+	height: 5vh;
+	margin: 0 1rem;
 	text-align: center;
 	padding: 8px;
 	left: 0;
@@ -211,6 +287,10 @@ footer {
 	background-color: #121213;
 	font-size: 0.9rem;
 	font-weight: bold;
+	a {
+		color: #00abf0;
+		text-decoration: none;
+	}
 }
 
 /* @font-face {
